@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(0, 0, 33);
+    /* background-image: url(../images/nature_snow_mountain_landscape_mountains_glacier_sky_4k_hd_nature.jpg); */
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+/* 
+#le {
+    height: 70px;
+    margin-top: 9px;
+    border-radius: 40px;
+} */
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 80px;
+    background-color: rgb(18, 18, 56);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+}
+
+nav li {
+    list-style: none;
+    margin: 0 23px;
+}
+
+nav li a {
+    text-decoration: none;
+    color: white;
+}
+
+nav li a:hover {
+    color: rgb(150, 150, 244);
+    font-size: 1.02rem;
+}
+
+main hr {
+    border: 0;
+    background-color: #9c97f1;
+    height: 1.2px;
+    margin: 20px 84px;
+}
+
+.left {
+    font-size: 2rem;
+    /* height: 70px;
+    margin-top: 9px;
+    border-radius: 40px;*/
+}
+
+.firstSection {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10 0px;
+}
+
+.firstSection>div {
+    /* background-color: red; */
+    width: 35%;
+}
+
+.leftSection {
+    /* background-color: red; */
+    font-size: 2.4rem;
+    /* margin: 70px 0; */
+}
+
+.rightSection #rimg1 {
+    /* background-color: red; */
+    /* background-color: red; */
+    width: 82%;
+    /* margin-left: 4px; */
+    margin: 102px -110px;
+}
+
+.rightSection #rimg2 {
+    width: 187px;
+    margin-left: 107px;
+}
+
+.rightSection #rimg3 {
+    width: 19rem;
+    margin-top: -108px;
+    height: 11rem;
+    margin-left: -52px;
+}
+
+.purple {
+    color: blueviolet;
+}
+
+#element {
+    color: blueviolet;
+}
+
+.secondSection {
+    max-width: 83vw;
+    margin: auto;
+    height: 80vh;
+}
+
+.secondSection h1 {
+    font-size: 2rem;
+}
+
+.text-gray {
+    color: gray;
+}
+
+.secondSection .box {
+    height: 2px;
+    background: white;
+    width: 76vw;
+    margin: 6px 50px;
+    display: flex;
+}
+
+.secondSection .vertical {
+    height: 93px;
+    width: 1px;
+    background-color: white;
+    margin: 0 120px;
+}
+
+/* .image-top {
+    height: 45px;
+    width: 47px;
+    position: relative;
+    top: -49px;
+    right: 23px;
+} */
+
+.vertical-title {
+    position: relative;
+    top: 96px;
+    width: 120px;
+    left: -43px;
+}
+
+.vertical-description {
+    position: relative;
+    top: 98px;
+    color: gray;
+    width: 150px;
+    font-size: 13px;
+    left: -60px;
+}
+/* footer {
+    background-color: #6b63f3;
+    height: 120px;
+} */
+/* .footer {
+    display: flex;
+} */

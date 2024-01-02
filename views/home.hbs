@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>- BLOGGER'S PARADISE -</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="left">
+                <span id="le"> Blogger's Paradise </span>
+            </div>
+            <div class="right">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/">Community</a></li>
+                    <li><a href="/">Services</a></li>
+                    <li><a href="/dashboard">Your Profile</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Section 1 -->
+        <section class="firstSection">
+            <div class="leftSection">
+                Welcome to <span class="purple">Blog It!!</span>
+                <div>a perfect place for bloggers</div>
+                <!-- <div>Web Developer</div> -->
+                <span id="element"></span>
+            </div>
+            <div class="rightSection">
+                <img src="../images/Best-Travel-Photography-Blogs-Cover-Photo-e1420190498150.jpg" alt="" id="rimg1">
+                <img src="../images/photo-1528543606781-2f6e6857f318.avif" alt="" id="rimg2">
+                <img src="../images/zoho-developers.webp" alt="" id="rimg3">
+            </div>
+        </section>
+
+        <!-- Section 2 -->
+        <hr>
+        <section class="secondSection">
+            <span class="text-gray"> A Perfect place to express through your words </span>
+            <h1>Our Famous bloggers</h1>
+            <div class="box">
+                <div class="vertical">
+                    {{!-- <img class="image-top" src="../images/download (2).png" alt=""> --}}
+                    <div class="vertical-title">
+                        David Rogers
+                    </div>
+                    <div class="vertical-description">
+                        One of the best and most renowned food blogger. His style of cooking is unique and our readers love to see him and learn his great cooking recipes.
+                    </div>
+                </div>
+                <div class="vertical">
+                    {{!-- <img class="image-top" src="../images/download (1).png" alt=""> --}}
+                    <div class="vertical-title">
+                        Jhon Doe 
+                    </div>
+                    <div class="vertical-description">
+                        Jhon is bascically a traveller who loves to explore around the world and along with that he captures the world into his camera and let others people see the wonders of this world.
+                    </div>
+                </div>
+                <div class="vertical">
+                    {{!-- <img class="image-top" src="../images/download.png" alt=""> --}}
+                    <div class="vertical-title">
+                        CodingNinja
+                    </div>
+                    <div class="vertical-description">
+                        CodingNinja is a famous programmer , A fullstack developer with a knowledge of various frameworks. Recently he has influenced and helped many people who wants to learn programming.
+                    </div>
+                </div>
+                <div class="vertical">
+                    {{!-- <img class="image-top" src="../images/download.png" alt=""> --}}
+                    <div class="vertical-title">
+                        James Potter
+                    </div>
+                    <div class="vertical-description">
+                        James is a successfull trader who has been trading since last 4 years. He has helped out many people in trading and he always shares his ideas to become more efficient in trading.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer section -->
+    {{!-- <footer>
+        <div class="footer">
+            <div class="first"></div>
+            <div class="second"></div>
+            <div class="third"></div>
+            <div class="fourth"></div>
+        </div>
+    </footer> --}}
+
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['Travel Blogs', 'Food Blogs', 'Trading Blogs','Programming','Developing','and many more'],
+            typeSpeed: 40,
+        });
+    </script>
+</body>
+</html>
