@@ -20,9 +20,10 @@
             <div class="right">
                 <ul>
                     <li><a href="/">Home</a></li>
-                    <li><a href="/">Community</a></li>
-                    <li><a href="/">Services</a></li>
                     <li><a href="/dashboard">Your Profile</a></li>
+                    <li><a href="/allblogs">All Blogs</a></li>
+                    <li><a href="/myblog">My Blogs</a></li>
+                    <li><a href="/login">Log in</a></li>
                 </ul>
             </div>
         </nav>
@@ -88,17 +89,29 @@
                 </div>
             </div>
         </section>
+
+        {{!-- Section 3 --}}
+        <section class="allblogs">
+                <h1>All blogs</h1>
+                {{#each blogs as |blog| }}
+                <div>
+                    <p>{{blog.user.username}}</p>
+                    <h1>{{blog.title}}</h1>
+                    <p>{{blog.content}}</p>
+                </div>
+                {{/each}}
+        </section>
     </main>
 
     <!-- Footer section -->
-    {{!-- <footer>
+     {{!-- <footer>
         <div class="footer">
             <div class="first"></div>
             <div class="second"></div>
             <div class="third"></div>
             <div class="fourth"></div>
         </div>
-    </footer> --}}
+    </footer>  --}}
 
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <script>

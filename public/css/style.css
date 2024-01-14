@@ -156,6 +156,10 @@ main hr {
     font-size: 13px;
     left: -60px;
 }
+
+.allblogs {
+    text-align: center;
+}
 /* footer {
     background-color: #6b63f3;
     height: 120px;

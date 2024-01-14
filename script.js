@@ -4,19 +4,17 @@ const path= require("path")
 const mongoose =require("mongoose");
 const session = require('express-session')
 const User =require("./model/user");
-const Blog =require("./model/blogs");
+const Blog = require("./model/blogs");
 app.use(session({
     secret: 'secret',
     // resave: false,
     // saveUninitialized: true,
     // cookie: { secure: true }
   }))
-app.use(express.static(path.join(__dirname,'/public')))
+app.use(express.static(path.join(__dirname,"public")))
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
-app.use("/posts",require("./routes/blogs"));
 app.set("view engine","hbs");
-
 
 function checkIsLoggedIn(req,res,next){
     if(req.session.isLoggedIn){
@@ -24,32 +22,33 @@ function checkIsLoggedIn(req,res,next){
     }else{
         res.redirect("/login");
     }
+
 }
-
 app.get("/",checkIsLoggedIn,(req,res)=>{
-    res.render("home");
+    res.render("home",{user:req.session.user});
 })
-
 app.get("/login",(req,res)=>{
     res.render("login");
 })
-
 app.get("/register",(req,res)=>{
     res.render("register");
 })
-
-app.get("/dashboard",(req,res)=> {
+app.get("/dashboard", (req,res) => {
     res.render("dashboard");
 })
-
+app.get("/allblogs", (req,res) => {
+    res.render("allblogs");
+})
+app.get("/myblog", (req,res) => {
+    res.render("myblog");
+})
 app.post("/register",async(req,res)=>{
     const {username,password}=req.body;
     let newUser =new User({username,password});
     await newUser.save();
     // res.send("user registered successfully!!");
-    res.render("home")
+    res.redirect("/login");
 })
-
 app.post("/login",async(req,res)=>{
     const {username,password}=req.body;
     let user=await User.findOne({username:username});
@@ -58,6 +57,7 @@ app.post("/login",async(req,res)=>{
             res.send("Invalid password!!")
         }else{
             req.session.isLoggedIn=true;
+            req.session.user=user;
             res.redirect("/");
         }
 
@@ -66,9 +66,32 @@ app.post("/login",async(req,res)=>{
     }
 })
 
+app.post("/addblog", async (req,res)=> {
+    const {postName,imageURL,caption} = req.body;
+    let newblog = new Blog({postName,imageURL,caption,user:req.session.user._id});
+    await newblog.save();
+    let user = await User.findById(req.session.user._id);
+    user.blogs.push(newblog._id);
+    await user.save();
+    console.log(user);
+    console.log(newblog);
+    res.redirect("/");
+})
+
+app.get("/myblog", async (req,res) => {
+    let user = await User.findById(req.session.user._id).populate("blog");
+    console.log(user);
+    res.render("myblog",{blogs:user.blogs,user:user});
+})
+
+app.get("/blogs", async (req,res) => {
+    const blogs = await Blog.find().populate("user");
+    console.log(blogs);
+    res.render("allblogs",{blogs});
+})
 
 mongoose.connect("mongodb://127.0.0.1:27017/BlogDB").then(()=>{
     app.listen(3334,()=>{
         console.log("server started at port 3334");
-      })
+    })
 })
