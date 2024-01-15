@@ -70,8 +70,8 @@ app.post("/login",async(req,res)=>{
 })
 
 app.post("/addblog", async (req,res)=> {
-    const {postName,imageURL,caption} = req.body;
-    let newblog = new Blog({postName,imageURL,caption,user:req.session.user._id});
+    const {postName,caption,blog} = req.body;
+    let newblog = new Blog({postName,caption,blog,user:req.session.user._id});
     await newblog.save();
     let user = await User.findById(req.session.user._id);
     user.blogs.push(newblog._id);
