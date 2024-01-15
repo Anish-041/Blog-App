@@ -93,6 +93,11 @@ app.get("/allblogs", async (req,res) => {
     res.render("allblogs",{blogs});
 })
 
+app.get("/logout", (req,res) => {
+    req.session.destroy(() => {
+        res.render("home");
+    });
+});
 mongoose.connect("mongodb://127.0.0.1:27017/BlogDB").then(()=>{
     app.listen(3334,()=>{
         console.log("server started at port 3334");
