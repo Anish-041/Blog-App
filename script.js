@@ -18,7 +18,7 @@ app.set("view engine","hbs");
 
 function checkIsLoggedIn(req,res,next){
     if(req.session.isLoggedIn){
-        next()
+        next();
     }else{
         res.redirect("/login");
     }
@@ -36,11 +36,14 @@ app.get("/register",(req,res)=>{
 app.get("/dashboard", (req,res) => {
     res.render("dashboard");
 })
-app.get("/allblogs", (req,res) => {
-    res.render("allblogs");
-})
-app.get("/myblog", (req,res) => {
-    res.render("myblog");
+// app.get("/allblogs", (req,res) => {
+//     res.render("allblogs");
+// })
+// app.get("/myblog", (req,res) => {
+//     res.render("myblog");
+// })
+app.get("/home", (req,res) => {
+    res.render("home");
 })
 app.post("/register",async(req,res)=>{
     const {username,password}=req.body;
@@ -79,12 +82,12 @@ app.post("/addblog", async (req,res)=> {
 })
 
 app.get("/myblog", async (req,res) => {
-    let user = await User.findById(req.session.user._id).populate("blog");
+    let user = await User.findById(req.session.user._id).populate("blogs");
     console.log(user);
     res.render("myblog",{blogs:user.blogs,user:user});
 })
 
-app.get("/blogs", async (req,res) => {
+app.get("/allblogs", async (req,res) => {
     const blogs = await Blog.find().populate("user");
     console.log(blogs);
     res.render("allblogs",{blogs});

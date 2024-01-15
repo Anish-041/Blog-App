@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title> Responsiive Admin Dashboard | CodingLab </title>
+    <title> Dashboard </title>
     <link rel="stylesheet" href="style.css">
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -15,7 +15,7 @@
     <div class="sidebar">
         <div class="logo-details">
             <i class='bx bxl-c-plus-plus'></i>
-            <span class="logo_name">{{user.username}}</span>
+            <span class="logo_name"><h2>{{user.username}}</h2></span>
         </div>
         <ul class="nav-links">
             <li>
@@ -72,9 +72,9 @@
     <section class="home-section">
         <div class="wrapper">
             <form action="/addblog" method="post">
-                <input type="text" name="postName" placeholder="Enter title">
-                <input type="text" name="ImageURL" placeholder="Enter caption">
-                <input type="text" name="caption" placeholder="Enter desc">
+                <input type="text" name="title" placeholder="Enter title">
+                <input type="text" name="caption" placeholder="Enter caption">
+                <input type="text" name="desc" placeholder="Enter desc">
             </form>
             <button type="submit">Add blog</button>
         </div>
