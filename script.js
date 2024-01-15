@@ -34,7 +34,7 @@ app.get("/register",(req,res)=>{
     res.render("register");
 })
 app.get("/dashboard", (req,res) => {
-    res.render("dashboard");
+    res.render("dashboard",{user:req.session.user});
 })
 // app.get("/allblogs", (req,res) => {
 //     res.render("allblogs");
