@@ -8,7 +8,7 @@
 <body>
     <nav>
         <ul>
-            <li><a href="/home">Home</a></li>
+            <li><a href="/blogit/home2">Home</a></li>
             {{!-- <li><a href="/">myblog</a></li>
             <li><a href="/blogs">allblog</a></li> --}}
         </ul>
@@ -16,8 +16,8 @@
     <h1>All blogs</h1>
     {{#each blogs as |blog| }}
     <div>
-        <p>{{blog.user.username}}</p>
-        <h1>{{blog.postName}}</h1>
+        <h1>{{blog.user.username}}</h1>
+        <h3>{{blog.postName}}</h3>
         <p>{{blog.caption}}</p>
         <p>{{blog.blog}}</p>
     </div>
