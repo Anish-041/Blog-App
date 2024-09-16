@@ -14,6 +14,7 @@ const router=express.Router();
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const crypto=require("crypto");
+// const bcrypt=require("bcrypt");
 const sendEmail=require("../utils/util");
 const session = require('express-session')
 const User =require("../model/user");
@@ -56,7 +57,8 @@ router.post("/login",async(req,res)=>{
     if(user){
         if(user.password!=password){
             res.send("Invalid password!!")
-        }else{
+        }
+        if (!bcrypt.compareSync(password,user.password)) {
             req.session.isLoggedIn=true;
             req.session.user=user;
             res.render("home2");
